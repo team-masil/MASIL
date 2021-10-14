@@ -52,8 +52,8 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.HTTPS_PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+let server = app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`);
 });
 
-module.exports = app;
+module.exports = server;
