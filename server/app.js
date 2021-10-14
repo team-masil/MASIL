@@ -17,7 +17,6 @@ const replyRouter = require('./routes/reply');
 const userRouter = require('./routes/user')
 
 var app = express();
-const port = 3000;
 
 require("dotenv").config();
 
@@ -51,7 +50,9 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(port, () => {
+const PORT = process.env.HTTPS_PORT || 5000;
+
+app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
 
