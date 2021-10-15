@@ -13,7 +13,7 @@ const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const petRouter = require('./routes/pet');
 const postRouter = require('./routes/post');
-const replyRouter = require('./routes/reply');
+const replyRouter = require('./routes/like');
 const userRouter = require('./routes/user')
 
 var app = express();
@@ -36,14 +36,14 @@ app.use(
 );
 
 //Connect Routers
-app.use('/auth', authRouter);
-app.use('/login', loginRouter);
-app.use('/logout', logoutRouter);
-app.use('/user', userRouter);
-app.use('/pet', petRouter);
-app.use('/post', postRouter);
-app.use('/comment', commentRouter);
-app.use('/reply', replyRouter);
+// app.use('/auth', authRouter);
+// app.use('/login', loginRouter);
+// app.use('/logout', logoutRouter);
+// app.use('/user', userRouter);
+// app.use('/pet', petRouter);
+// app.use('/post', postRouter);
+// app.use('/comment', commentRouter);
+// app.use('/reply', replyRouter);
 
 
 app.get('/', (req, res) => {
@@ -53,7 +53,11 @@ app.get('/', (req, res) => {
 const PORT = process.env.HTTPS_PORT || 5000;
 
 let server = app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`);
+  console.log(`
+    ########################################
+    🛡️  Server listening on port: ${PORT}  🛡️
+    ########################################
+  `);
 });
 
 module.exports = server;
