@@ -1,6 +1,6 @@
 # MASIL : 마실
 
-![MASIL](https://user-images.githubusercontent.com/67153175/136932266-bd3dbfe4-8d5f-4cc9-965d-1cdad79a63b6.png)
+<img src="https://user-images.githubusercontent.com/67153175/136932266-bd3dbfe4-8d5f-4cc9-965d-1cdad79a63b6.png" width="450" height="400">
 
 ## 🐶 내 반려동물에게 친구를 만들어주고 싶다면?
 ```
@@ -47,8 +47,9 @@ MASIL은 위치정보를 기반으로 한 반려동물 플랫폼으로
 |Back End|Express||
 |DB|MongoDB||
 |Cloud Services|AWS EC2, AWS CloudFront, AWS S3||
-|Tools|VSCode, Discord, Notion||
+|Tools|VSCode, Figma, Discord, Notion||
 
 
 
 ## 🏗아키텍쳐
+<img src="https://user-images.githubusercontent.com/67153175/137584275-5cb954f0-406b-4022-8b31-6e1aeabb329c.jpg" width="750" height="800">
