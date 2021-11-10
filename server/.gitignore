@@ -9,6 +9,8 @@
 # secret file
 dev.js
 .env
+key.pem
+cert.pem
 
 # testing
 /coverage

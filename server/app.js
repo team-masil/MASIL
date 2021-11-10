@@ -1,16 +1,17 @@
-const createError = require('http-errors');//
-const express = require('express');//
-const path = require('path');//
-const cookieParser = require('cookie-parser');//
-const logger = require('morgan');//
-const fs = require("fs");//
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const fs = require("fs");
 const https = require("https");
 const cors = require("cors");
+const db = require('./config/Mongoose.js'); // db 불러오기
+
 
 const authRouter = require('./routes/auth');
 const commentRouter = require('./routes/comment');
 const loginRouter = require('./routes/login');
-const logoutRouter = require('./routes/logout');
 const petRouter = require('./routes/pet');
 const postRouter = require('./routes/post');
 const replyRouter = require('./routes/like');
@@ -25,6 +26,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+db(); // DB 실행
+
 
 //CORS Setting
 app.use(
@@ -50,8 +53,23 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-const PORT = process.env.HTTPS_PORT || 5000;
 
+// //HTTPS 서버
+// https
+//   .createServer(
+//     {
+//       key: fs.readFileSync(__dirname + '/key.pem', 'utf-8'),
+//       cert: fs.readFileSync(__dirname + '/cert.pem', 'utf-8'),
+//     },
+//     app.use('/', (req, res) => {
+//       res.send('Congrats! You made https server now :)');
+//     })
+//   )
+//   .listen(3001);
+
+  const PORT = process.env.HTTPS_PORT || 5000;
+
+//HTTP 서버
 let server = app.listen(PORT, () => {
   console.log(`
     ########################################
