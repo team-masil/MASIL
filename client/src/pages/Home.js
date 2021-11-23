@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import LoginContainer from "../containers/LoginContainer";
 
 function Home() {
+  const [loginModal, setLoginModal] = useState(false);
+
+  const handleLoginModal = () => setLoginModal((prev) => !prev);
+
   return (
-    <div>
+    <>
       <div>
         <ul>
           <li>
@@ -11,7 +16,12 @@ function Home() {
           <li>
             <a href="/register">글쓰기</a>
           </li>
-          <li>로그인</li>
+          <li>
+            <button onClick={handleLoginModal} type="button">
+              로그인
+            </button>
+            {loginModal ? <LoginContainer /> : null}
+          </li>
         </ul>
       </div>
       <div>
@@ -30,11 +40,11 @@ function Home() {
         </ul>
       </div>
       <div>
-        <button>최신</button>
-        <button>인기</button>
+        <button type="button">최신</button>
+        <button type="button">인기</button>
       </div>
       <div>게시글 목록</div>
-    </div>
+    </>
   );
 }
 

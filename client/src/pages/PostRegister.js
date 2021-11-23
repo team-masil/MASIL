@@ -1,3 +1,4 @@
+import PostFormContainer from "containers/PostFormContainer";
 import React from "react";
 
 function PostRegister() {
@@ -14,7 +15,7 @@ function PostRegister() {
           <li>로그인</li>
         </ul>
       </div>
-      PostRegister
+      <PostFormContainer />
     </div>
   );
 }
