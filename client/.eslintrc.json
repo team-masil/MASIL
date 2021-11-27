@@ -1,12 +1,12 @@
 {
+    "parser": "babel-eslint",
     "env": {
         "browser": true,
-        "es2021": true
+        "node": true
     },
     "extends": [
-        "plugin:prettier/recommended",
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime"
+        "airbnb",
+        "plugin:prettier/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -17,24 +17,45 @@
     },
     "plugins": [
         "react",
+        "jsx-a11y",
+        "import",
         "prettier"
     ],
     "rules": {
-        "react/jsx-filename-extension": [
-            1,
-            {
-                "extensions": [
-                    ".js",
-                    ".jsx"
-                ]
-            }
-        ],
+        "react/jsx-filename-extension": 0,
         "prettier/prettier": [
             "error",
             {
                 "singleQuote": false,
                 "parser": "flow"
             }
-        ]
+        ],
+        "import/order": "off",
+        "no-var": "error",
+        "no-unused-vars": "off",
+        "no-console": "off",
+        "func-names": "off",
+        "object-shorthand": "off",
+        "class-methods-use-this": "off",
+        "import/prefer-default-export": "off",
+        "consistent-return": [
+            "off"
+        ],
+        "dot-notation": "off",
+        "react/prop-types": "off",
+        "react/destructuring-assignment": "warn",
+        "import/no-unresolved": "off",
+        "import/extensions": "off",
+        "react/jsx-curly-brace-presence": "warn"
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "moduleDirectory": [
+                    "node_modules",
+                    "src"
+                ]
+            }
+        }
     }
 }
