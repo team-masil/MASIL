@@ -1,15 +1,30 @@
-import React from "react";
+import LoginContainer from "containers/LoginContainer";
+import React, { useState } from "react";
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+  const [loginModal, setLoginModal] = useState(false);
+
+  const handleLoginModal = () => setLoginModal((prev) => !prev);
+
   return (
     <>
-      <nav>
-        <a href="/">MASIL</a>
-        <div>
-          <button type="button">
+      <nav className={styles.navbar}>
+        <a href="/">
+          <img className={styles.logo} src="/images/MASIL.jpg" alt="logo" />
+        </a>
+        <div className={styles.navbarElementWrapper}>
+          <button type="button" className={styles.postRegister}>
             <a href="/register">글쓰기</a>
           </button>
-          <button type="button">로그인</button>
+          <button
+            type="button"
+            className={styles.login}
+            onClick={handleLoginModal}
+          >
+            로그인
+          </button>
+          {loginModal ? <LoginContainer /> : null}{" "}
         </div>
       </nav>
     </>
