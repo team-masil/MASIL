@@ -1,5 +1,6 @@
+import GNB from "components/GNB";
+import LoginModal from "components/Modal/LoginModal";
 import React, { useState } from "react";
-import LoginContainer from "../containers/LoginContainer";
 
 function Home() {
   const [loginModal, setLoginModal] = useState(false);
@@ -8,22 +9,7 @@ function Home() {
 
   return (
     <>
-      <div>
-        <ul>
-          <li>
-            <a href="/">홈</a>
-          </li>
-          <li>
-            <a href="/register">글쓰기</a>
-          </li>
-          <li>
-            <button onClick={handleLoginModal} type="button">
-              로그인
-            </button>
-            {loginModal ? <LoginContainer /> : null}
-          </li>
-        </ul>
-      </div>
+      <GNB />
       <div>
         <h2>
           사회성도 기르고 친구들과 더 신나게 놀 수 있도록 내 주변의 반려인들을
