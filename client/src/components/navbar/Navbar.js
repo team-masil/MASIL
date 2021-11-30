@@ -1,3 +1,5 @@
+import Modal from "components/Modal";
+import LoginModal from "components/Modal/LoginModal";
 import LoginContainer from "containers/LoginContainer";
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
@@ -5,7 +7,9 @@ import styles from "./Navbar.module.css";
 const Navbar = () => {
   const [loginModal, setLoginModal] = useState(false);
 
-  const handleLoginModal = () => setLoginModal((prev) => !prev);
+  const openModal = () => {
+    setLoginModal((prev) => !prev);
+  };
 
   return (
     <>
@@ -21,14 +25,14 @@ const Navbar = () => {
           <button type="button" className={styles.postRegister}>
             <a href="/register">글쓰기</a>
           </button>
-          <button
-            type="button"
-            className={styles.login}
-            onClick={handleLoginModal}
-          >
+          <button type="button" className={styles.login} onClick={openModal}>
             로그인
           </button>
-          {loginModal ? <LoginContainer /> : null}{" "}
+          {loginModal ? (
+            <Modal visible={loginModal} name="login" onClose={openModal}>
+              <LoginModal handleClose={openModal} tabIndex={0} />
+            </Modal>
+          ) : null}
         </div>
       </nav>
     </>
