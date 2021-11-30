@@ -11,7 +11,11 @@ const Navbar = () => {
     <>
       <nav className={styles.navbar}>
         <a href="/">
-          <img className={styles.logo} src="/images/MASIL.jpg" alt="logo" />
+          <img
+            className={styles.logo}
+            src="/images/MASIL_mainLogo.jpeg"
+            alt="logo"
+          />
         </a>
         <div className={styles.navbarElementWrapper}>
           <button type="button" className={styles.postRegister}>

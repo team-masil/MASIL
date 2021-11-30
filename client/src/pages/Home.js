@@ -1,3 +1,4 @@
+import Banner from "components/Banner/Banner";
 import Navbar from "components/Navbar/Navbar";
 import React from "react";
 
@@ -5,13 +6,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div>
-        <h2>
-          사회성도 기르고 친구들과 더 신나게 놀 수 있도록 내 주변의 반려인들을
-          찾아보세요! 반려동물 카페도 같이 가고, 여행과 산책도 함께 할 수
-          있어요.
-        </h2>
-      </div>
+      <Banner />
       <div>
         <ul>
           <li>궁금해요</li>

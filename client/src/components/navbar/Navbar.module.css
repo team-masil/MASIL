@@ -1,5 +1,5 @@
 * {
-    background-color: #eaebed;
+    background-color: white;
 }
 .navbar {
     display: flex;
@@ -20,7 +20,7 @@
   button {
     outline: none;
     border: none;
-    background-color: #eaebed;
+    background-color: white;
     cursor: pointer;
   }
 
