@@ -1,10 +1,10 @@
-import SocialLoginComponent from "components/SocialLogin/SocialLoginComponent";
 import React from "react";
+import SocialLoginContainer from "./SocialLoginContainer/SocialLoginContainer";
 
 const LoginContainer = () => {
   return (
     <div>
-      <SocialLoginComponent />
+      <SocialLoginContainer />
     </div>
   );
 };
