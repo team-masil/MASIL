@@ -18,7 +18,7 @@ const Banner = () => {
               alt="sub logo"
             />
           </div>
-          <span className={styles.weak}>이 항상 함께할게요.</span>
+          <span className={styles.weak}>이 항상 함께 할게요.</span>
         </div>
       </div>
       <div className={styles.bannerImg}>

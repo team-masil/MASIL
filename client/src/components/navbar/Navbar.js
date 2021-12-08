@@ -1,14 +1,19 @@
 import Modal from "components/Modal";
 import LoginModal from "components/Modal/LoginModal";
-import LoginContainer from "containers/LoginContainer";
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [loginModal, setLoginModal] = useState(false);
 
   const openModal = () => {
     setLoginModal((prev) => !prev);
+  };
+
+  const handleRegister = () => {
+    navigate("/register");
   };
 
   return (
@@ -22,8 +27,12 @@ const Navbar = () => {
           />
         </a>
         <div className={styles.navbarElementWrapper}>
-          <button type="button" className={styles.postRegister}>
-            <a href="/register">글쓰기</a>
+          <button
+            type="button"
+            className={styles.postRegister}
+            onClick={handleRegister}
+          >
+            글쓰기
           </button>
           <button type="button" className={styles.login} onClick={openModal}>
             로그인

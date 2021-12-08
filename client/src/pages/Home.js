@@ -1,12 +1,14 @@
 import Banner from "components/Banner/Banner";
+import Map from "components/Map/Map";
 import Navbar from "components/Navbar/Navbar";
-import React, { useState } from "react";
+import React from "react";
 
 const Home = () => {
   return (
     <>
       <Navbar />
       <Banner />
+      <Map />
       <div>
         <ul>
           <li>궁금해요</li>
