@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
 });
 
 
-// //HTTPS 서버
+//HTTPS 서버
 // https
 //   .createServer(
 //     {
@@ -67,7 +67,6 @@ app.get('/', (req, res) => {
 //   )
 //   .listen(3001);
 
-  const PORT = process.env.HTTPS_PORT || 5000;
 
 //HTTP 서버
 let server = app.listen(PORT, () => {
