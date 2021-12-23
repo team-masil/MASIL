@@ -10,14 +10,6 @@ const Home = () => {
       <Banner />
       <Map />
       <div>
-        <ul>
-          <li>궁금해요</li>
-          <li>마실가요</li>
-          <li>찾아줘요</li>
-          <li>나눠봐요</li>
-        </ul>
-      </div>
-      <div>
         <button type="button">최신</button>
         <button type="button">인기</button>
       </div>

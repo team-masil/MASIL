@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   const [loginModal, setLoginModal] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const openModal = () => {
     setLoginModal((prev) => !prev);
@@ -34,9 +35,11 @@ const Navbar = () => {
           >
             글쓰기
           </button>
+
           <button type="button" className={styles.login} onClick={openModal}>
             로그인
           </button>
+
           {loginModal ? (
             <Modal visible={loginModal} name="login" onClose={openModal}>
               <LoginModal handleClose={openModal} tabIndex={0} />
