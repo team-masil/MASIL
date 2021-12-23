@@ -1,0 +1,46 @@
+* {
+    background-color: white;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.logo {
+    width: 7rem;
+    height: auto;
+  }
+  
+  .navbarElementWrapper {
+    display: flex;
+    margin-right: 1rem;
+  }
+
+  button {
+    outline: none;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  .postRegister {
+    margin-right: 2rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+
+  .login {
+    margin-right: 2rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+
+  @media screen and (max-width: 575px) {
+    .navbarElementWrapper {
+      margin-right: 0;
+    }
+    .login {
+      margin-right: 0;
+    }
+  }
