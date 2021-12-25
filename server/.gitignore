@@ -11,6 +11,7 @@ dev.js
 .env
 key.pem
 cert.pem
+AWS_MASIL.pem
 
 # testing
 /coverage
