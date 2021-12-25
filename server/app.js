@@ -17,7 +17,8 @@ const postRouter = require('./routes/post');
 const replyRouter = require('./routes/like');
 const userRouter = require('./routes/user')
 
-var app = express();
+const app = express();
+const PORT = 3000;
 require("dotenv").config();
 
 app.use(logger('dev'));
@@ -68,10 +69,10 @@ app.get('/', (req, res) => {
 
 
 //HTTP 서버
-let server = app.listen(process.env.HTTP_PORT, () => {
+let server = app.listen(PORT, () => {
   console.log(`
     ########################################
-    🛡️  Server listening on port: ${process.env.HTTP_PORT}  🛡️
+    🛡️  Server listening on port: ${PORT}  🛡️
     ########################################
   `);
 });
