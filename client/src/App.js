@@ -1,36 +1,25 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import MyLikes from "./pages/MyLikes";
-import MyPosts from "./pages/MyPosts";
-import NotFound from "./pages/NotFound";
-import PostRegister from "./pages/PostRegister";
-import Profile from "./pages/Profile";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./components/views/LandingPage/LandingPage";
+import LoginPage from "./components/views/LoginPage/LoginPage";
+import RegisterPage from "./components/views/RegisterPage/RegisterPage";
+import Navbar from "./components/views/Navbar/Navbar";
+import PostPage from "./components/views/PostPage/PostPage";
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path={["/", "/home"]}>
-          <Home />
-        </Route>
-        <Route path="/register">
-          <PostRegister /> {/* 글 등록 */}
-        </Route>
-        <Route path="/profile">
-          <Profile /> {/* 나의 정보 수정 */}
-        </Route>
-        <Route path="/myPosts">
-          <MyPosts /> {/* 나의 게시글 목록 */}
-        </Route>
-        <Route path="/myLikes">
-          <MyLikes /> {/*  내가 좋아요 한 게시글 목록   */}
-        </Route>
-        <Route>
-          <NotFound />
-        </Route>
-      </Switch>
-    </Router>
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<LandingPage />} />
+          <Route exact path="/login" element={<LoginPage />} />
+          <Route exact path="/register" element={<RegisterPage />} />
+          <Route exact path="/post" element={<PostPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;
