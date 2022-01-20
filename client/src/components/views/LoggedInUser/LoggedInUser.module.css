@@ -1,0 +1,12 @@
+button {
+    outline: none;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.logout {
+    margin-right: 2rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+}
