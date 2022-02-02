@@ -1,0 +1,33 @@
+.container {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.buttons {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.buttons button {
+    margin-right: 5rem;
+    margin-top: 1rem;
+    position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    background-color: rgba(214, 214, 214, 0.541);
+    color: rgb(29, 99, 160);
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.25s;
+}
+
+.buttons button:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+

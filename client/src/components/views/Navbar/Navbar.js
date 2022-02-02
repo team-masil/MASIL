@@ -23,10 +23,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav
-        className={styles.navbar}
-        style={{ position: "fixed", zIndex: 5, width: "100%" }}
-      >
+      <nav className={styles.navbar} style={{ zIndex: 5, width: "100%" }}>
         <a href="/">
           <img
             className={styles.logo}

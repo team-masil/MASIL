@@ -5,7 +5,8 @@ import { FaCode } from "react-icons/fa";
 // import { logoutUser } from "../../../_actions/user_actions";
 import Auth from "../../../hoc/auth";
 import Banner from "../Banner/Banner";
-import Map from "../Map/Map";
+import FilterBox from "../FilterBox/FilterBox";
+import KakaoMap from "../Map/KakaoMap";
 import styles from "./LandingPage.module.css";
 
 const LandingPage = () => {
@@ -25,7 +26,8 @@ const LandingPage = () => {
   return (
     <>
     <Banner />
-    <Map />
+    <FilterBox />
+    <KakaoMap />
       <div className={styles.main}>
         <FaCode style={{ fontSize: "4rem" }} />
         <br />
