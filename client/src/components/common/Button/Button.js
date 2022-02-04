@@ -2,9 +2,14 @@ import React from "react";
 import styles from "./Button.module.css";
 
 const Button = () => {
-  const onCancel = () => {};
+  const onCancel = () => {
 
-  const onPublish = () => {};
+  };
+
+  const onPublish = () => {
+
+  };
+  
   return (
     <>
       <section className={styles.buttons}>
