@@ -1,8 +1,7 @@
 .container {
-    margin-left: 5rem;
-    margin-right: 5rem;
+    margin-left: 9rem;
+    margin-right: 9rem;
     margin-top: 2rem;
-    margin-bottom: 2rem;
 }
 .buttons {
     text-align: center;
@@ -10,17 +9,18 @@
 }
 
 .buttons button {
-    margin-right: 5rem;
-    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 0rem;
     position: relative;
-    padding: 15px 30px;
-    border-radius: 15px;
+    padding: 15px 50px;
+    border-radius: 25px;
     font-family: "paybooc-Light", sans-serif;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
-    background-color: rgba(214, 214, 214, 0.541);
+    background-color: rgb(255, 255, 255);
     color: rgb(29, 99, 160);
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 700;
     transition: 0.25s;
 }
