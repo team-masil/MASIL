@@ -1,12 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import Select from "react-select";
 import styles from "./PostPage.module.css";
 import { Editor } from "@toast-ui/react-editor";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import Button from "components/common/Button/Button";
-import KakaoMap from "../Map/KakaoMap";
 
 const PostPage = () => {
+
   const categoryLists = [
     { value: "마실가요", label: "마실가요" },
     { value: "궁금해요", label: "궁금해요" },

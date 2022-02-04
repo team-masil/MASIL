@@ -6,7 +6,6 @@ const FilterBox = () => {
   return (
     <>
       <div className={styles.container}>
-        <from>
           <h2>원하는 서비스를 선택하세요!</h2>
           <div className={styles.buttons}>
             <button>마 실 가 요</button>
@@ -14,7 +13,6 @@ const FilterBox = () => {
             <button>찾 아 줘 요</button>
             <button>나 눠 봐 요</button>
           </div>
-        </from>
       </div>
     </>
   );

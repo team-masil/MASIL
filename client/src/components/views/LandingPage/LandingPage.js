@@ -6,7 +6,7 @@ import { FaCode } from "react-icons/fa";
 import Auth from "../../../hoc/auth";
 import Banner from "../Banner/Banner";
 import FilterBox from "../FilterBox/FilterBox";
-import KakaoMap from "../Map/KakaoMap";
+import KakaoMap from "../../common/Map/KakaoMap";
 import styles from "./LandingPage.module.css";
 
 const LandingPage = () => {
