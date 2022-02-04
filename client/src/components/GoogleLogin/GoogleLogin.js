@@ -10,7 +10,7 @@ const Google_Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const ClientID = "442492822133-jj93gi9ogm9l9797ogvs2sq28v64d77q.apps.googleusercontent.com";
+  const ClientID = process.env.REACT_APP_CLIENT_ID
 
   const googleOnSuccess = async (res) => {
     let body = {

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import Select from "react-select";
 import styles from "./PostPage.module.css";
 import { Editor } from "@toast-ui/react-editor";
@@ -50,6 +50,7 @@ const PostPage = () => {
             previewStyle="vertical"
             height="500px"
             initialEditType="wysiwyg"
+            placeholder="내용을 입력하세요."
           />
         </div>
         <Button />
