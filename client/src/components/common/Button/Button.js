@@ -30,7 +30,7 @@ const Button = (props) => {
         message.success("게시글 등록에 성공했습니다.")
         setTimeout(() => {
           navigate("/");
-        }, 2000);
+        }, 1000);
       } else {
         alert('글을 등록하는데 실패했습니다.')
       }

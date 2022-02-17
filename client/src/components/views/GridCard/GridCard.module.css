@@ -1,6 +1,6 @@
 .cardItem {
-  width: 15rem;
-  height: 15rem;
+  width: 15.8rem;
+  height: 18rem;
   margin: 1rem;
   padding: 1.5rem;
   background: #ffffff;
@@ -31,6 +31,40 @@
   word-break: keep-all;
 }
 
+.image1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10rem;
+  height: 8rem;
+}
+
+.image2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1.5rem;
+  width: 7rem;
+  height: 7rem;
+}
+
+.image3 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1.5rem;
+  width: 5rem;
+  height: 7rem;
+}
+
+.image4 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 6rem;
+  height: 8rem;
+}
+
 .category {
   font-size: 1rem;
   font-weight: 800;
@@ -44,7 +78,7 @@
   color: #015497
 }
 
-.writer {
+/* .writer {
   font-size: 1rem;
   text-align: right;
   margin: 0;
@@ -53,8 +87,7 @@
   list-style: none;
   justify-content: center;
   color: black
-
-}
+} */
 
 .content {
   margin: 0;
@@ -82,6 +115,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: grey;
+  margin-bottom: 0.3rem;
+}
+
+.infoItem p {
+  margin-bottom: 0rem;
+}
+
+.comments {
+  margin-left: 2px;
+}
+
+.views {
+  margin-left: 2px;
 }
 
 .itemImg {
@@ -94,8 +141,4 @@
   width: 16px;
   height: auto;
   margin-right: 2px;
-}
-
-.views {
-  margin-left: 2px;
 }

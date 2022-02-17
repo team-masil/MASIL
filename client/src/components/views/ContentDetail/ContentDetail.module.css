@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   margin-top: 2rem;
+  margin-bottom: 0.5rem;
   font-size: 1.2rem;
   font-weight: 800;
   color: #015497
@@ -74,4 +75,28 @@
   margin: 0 auto;
 }
 
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+  }
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .userImg {
+    width: 2rem;
+    height: 2rem;
+  }
+  .userName {
+    font-size: 1rem;
+  }
+  .registeredDate {
+    font-size: 1rem;
+  }
+}
 
