@@ -1,29 +1,51 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useSelector } from "react-redux";
 import Select from "react-select";
 import styles from "./PostPage.module.css";
 import { Editor } from "@toast-ui/react-editor";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import Button from "components/common/Button/Button";
 
-const PostPage = () => {
+const categoryLists = [
+  { value: "마실가요", label: "마실가요" },
+  { value: "궁금해요", label: "궁금해요" },
+  { value: "찾아줘요", label: "찾아줘요" },
+  { value: "나눠봐요", label: "나눠봐요" },
+];
 
-  const categoryLists = [
-    { value: "마실가요", label: "마실가요" },
-    { value: "궁금해요", label: "궁금해요" },
-    { value: "찾아줘요", label: "찾아줘요" },
-    { value: "나눠봐요", label: "나눠봐요" },
-  ];
+const customStyles = {
+  control: (css) => ({
+    ...css,
+    maxWidth: "500px",
+    width: "100%",
+    minHeight: "3rem",
+  }),
+};
 
-  const customStyles = {
-    control: (css) => ({
-      ...css,
-      maxWidth: "500px",
-      width: "100%",
-      minHeight: "3rem",
-    }),
+const PostPage = (props) => {
+  const user = useSelector((state) => state.user);
+  const editorRef = useRef();
+
+  const [Title, setTitle] = useState("")
+  const [Category, setCategory] = useState("")
+  const [Content, setContent] = useState("")
+
+  const onTitleChange = (e) => {
+    setTitle(e.target.value)
   };
 
-  const onChangeTitle = () => {};
+  const onCategoryChange = (e) => {
+    setCategory(e.value)
+  }
+
+  const onContentsChange = () => {
+    setContent(editorRef.current.getInstance().getMarkdown())
+  }
+
+  useEffect(() => {
+    console.log(user)
+  }, [])
+  
 
   return (
     <>
@@ -32,8 +54,7 @@ const PostPage = () => {
           className={styles.titleInput}
           type="text"
           placeholder=" 제목을 입력하세요"
-          onChange={onChangeTitle}
-          // value={title}
+          onChange={onTitleChange}
         />
         <div className={styles.categoryWrapper}>
           <h3 className={styles.categoryList}>카테고리 : </h3>
@@ -42,6 +63,7 @@ const PostPage = () => {
               styles={customStyles}
               options={categoryLists}
               placeholder="원하는 서비스를 선택하세요!"
+              onChange={onCategoryChange}
             />
           </div>
         </div>
@@ -51,9 +73,11 @@ const PostPage = () => {
             height="500px"
             initialEditType="wysiwyg"
             placeholder="내용을 입력하세요."
+            onChange={onContentsChange}
+            ref={editorRef}
           />
         </div>
-        <Button />
+        <Button user={user.userData._id} title={Title} category={Category} content={Content} />
       </section>
     </>
   );
