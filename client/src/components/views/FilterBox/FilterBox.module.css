@@ -1,0 +1,32 @@
+.container {
+    margin-left: 9rem;
+    margin-right: 9rem;
+}
+.buttons {
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.buttons button {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 0rem;
+    position: relative;
+    padding: 15px 50px;
+    border-radius: 25px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    color: #015497;
+    font-size: 19px;
+    font-weight: 800;
+    transition: 0.25s;
+}
+
+.buttons button:hover {
+    letter-spacing: 1px;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+

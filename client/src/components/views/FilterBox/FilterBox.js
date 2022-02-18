@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import styles from "./FilterBox.module.css"
 
 const FilterBox = () => {
-  const [isChecked, setIsChecked] = useState("false");
 
   return (
     <>
-      <div>
-        <from>
-          <h2>Filter</h2>
-          <input type="checkbox" checked={isChecked} value="궁금해요" />
-        </from>
+      <div className={styles.container}>
+          <h2>원하는 서비스로 필터링해보세요!</h2>
+          <div className={styles.buttons}>
+            <button>마 실 가 요</button>
+            <button>궁 금 해 요</button>
+            <button>찾 아 줘 요</button>
+            <button>나 눠 봐 요</button>
+          </div>
       </div>
     </>
   );

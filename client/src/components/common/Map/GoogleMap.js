@@ -1,4 +1,4 @@
-import FilterBox from "../FilterBox/FilterBox";
+import FilterBox from "../../views/FilterBox/FilterBox";
 import React from "react";
 import {
   withScriptjs,

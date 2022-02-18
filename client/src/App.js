@@ -5,6 +5,7 @@ import LoginPage from "./components/views/LoginPage/LoginPage";
 import RegisterPage from "./components/views/RegisterPage/RegisterPage";
 import Navbar from "./components/views/Navbar/Navbar";
 import PostPage from "./components/views/PostPage/PostPage";
+import ContentDetail from "components/views/ContentDetail/ContentDetail";
 
 const App = () => {
   return (
@@ -16,6 +17,8 @@ const App = () => {
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/register" element={<RegisterPage />} />
           <Route exact path="/post" element={<PostPage />} />
+          <Route exact path="/content/:contentId" element={<ContentDetail />} />
+
         </Routes>
       </BrowserRouter>
     </>

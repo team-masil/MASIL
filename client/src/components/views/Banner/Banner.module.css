@@ -3,10 +3,10 @@
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 10rem;
-    padding-bottom: 2rem;
+    padding-left: 5rem;
+    padding-right: 0rem;
+    padding-top: 3rem;
+    padding-bottom: 0rem;
 
   }
   
@@ -42,7 +42,7 @@
   }
     
   .bannerImg {
-    flex: 1 1 65%;
+    flex: 1 1 60%;
   }
   
   .subtitle {
@@ -52,7 +52,7 @@
   .mainImg {
     width: 95%;
     height: auto;
-    padding: 1.5rem;
+    padding: 1rem;
   }
   
   .weak {
