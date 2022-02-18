@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import styles from "./Comment.module.css";
@@ -33,7 +33,7 @@ const Comment = (props) => {
 
   return (
     <div className={styles.commentInput}>
-      <h1 className={styles.commentCount}>0개의 댓글이 있습니다.</h1>
+      <h1 className={styles.commentCount}>{props.commentList.length}개의 댓글이 있습니다.</h1>
       <textarea
         placeholder="댓글을 입력하세요."
         value={CommentValue}

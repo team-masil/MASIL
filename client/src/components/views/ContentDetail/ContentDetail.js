@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Auth from "../../../hoc/auth";
 import styles from "./ContentDetail.module.css";
@@ -8,9 +7,20 @@ import { FaArrowLeft } from "react-icons/fa";
 import Comment from "../../common/Comment/Comment"
 import CommentList from "components/common/Comment/CommentList";
 
+const formatDate = (date) => {
+  let d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return [year, month, day].join("-");
+};
+
 const ContentDetail = () => {
   const contentId = useParams().contentId;
-  const user = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   const [ContentDetail, setContentDetail] = useState([]);
@@ -30,32 +40,24 @@ const ContentDetail = () => {
 
     axios.post("/api/comments/getComments", variable).then((res) => {
       if (res.data.success) {
-        console.log(res.data)
         setComments(res.data.comments);
       } else {
         alert("댓글 정보를 불러올 수 없습니다.");
       }
     });
-  }, []);
+  }, [contentId]);
 
   const handleBack = () => {
     navigate(-1)
   }
 
-  const formatDate = (date) => {
-    let d = new Date(date),
-      month = "" + (d.getMonth() + 1),
-      day = "" + d.getDate(),
-      year = d.getFullYear();
-  
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-  
-    return [year, month, day].join("-");
-  };
-
   const refreshFunction = (newComment) => {
     setComments(Comments.concat(newComment));
+  }
+
+  const deleteFunction = (commentId) => {
+    let newComments = Comments.filter(comment => comment._id !== commentId._id)
+    setComments(newComments);
   }
 
   return (
@@ -101,7 +103,10 @@ const ContentDetail = () => {
             commentList={Comments}
             contentId={contentId}
           />
-          <CommentList commentList={Comments} />
+          <CommentList
+            deleteFunction={deleteFunction}
+            commentList={Comments}
+          />
         </div>
       )}
     </>
