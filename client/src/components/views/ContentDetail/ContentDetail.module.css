@@ -47,6 +47,17 @@
   margin-top: 2rem;
 }
 
+.userImg {
+  display: block;
+  height: 3rem;
+  width: 3rem;
+  margin-right: 0.5rem;
+  box-shadow: rgb(0 0 0 / 9%) 0px 0px 8px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.125s ease-in 0s;
+}
+
 .userName {
   cursor: pointer;
   font-size: 1.5rem;
@@ -63,6 +74,7 @@
 
 .postContentWrapper {
   margin-top: 3rem;
+  min-height: 300px;
   font-size: 1.3rem;
   word-break: keep-all;
   overflow-wraps: break-word;

@@ -1,0 +1,37 @@
+.commentInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.commentInput textarea {
+  font-family: inherit;
+  padding: 1rem 1rem 1.5rem;
+  outline: none;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.buttonComplete {
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  width: 6rem;
+  margin-bottom: 40px;
+  height: 2rem;
+  font-size: 1rem;
+  background-color: #015497;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 575px) {
+  .commentCount {
+    font-size: 1.25rem;
+  }
+}

@@ -5,27 +5,37 @@ import { useNavigate, useParams } from "react-router-dom";
 import Auth from "../../../hoc/auth";
 import styles from "./ContentDetail.module.css";
 import { FaArrowLeft } from "react-icons/fa";
-import { Content } from "antd/lib/layout/layout";
+import Comment from "../../common/Comment/Comment"
+import CommentList from "components/common/Comment/CommentList";
 
 const ContentDetail = () => {
   const contentId = useParams().contentId;
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
 
-  const [ContentDetail, setContentDetail] = useState([])
+  const [ContentDetail, setContentDetail] = useState([]);
+  const [Comments, setComments] = useState([]);
 
   useEffect(() => {
-    let variable = { contentId: contentId };
+    const variable = { contentId: contentId };
 
     axios.post("/api/contents/getContentDetail", variable)
     .then(res => {
       if(res.data.success) {
-        console.log(res.data)
         setContentDetail(res.data.contentDetail)
       } else {
         alert('게시글을 불러올 수 없습니다.')
       }
     })
+
+    axios.post("/api/comments/getComments", variable).then((res) => {
+      if (res.data.success) {
+        console.log(res.data)
+        setComments(res.data.comments);
+      } else {
+        alert("댓글 정보를 불러올 수 없습니다.");
+      }
+    });
   }, []);
 
   const handleBack = () => {
@@ -44,6 +54,10 @@ const ContentDetail = () => {
     return [year, month, day].join("-");
   };
 
+  const refreshFunction = (newComment) => {
+    setComments(Comments.concat(newComment));
+  }
+
   return (
     <>
       {ContentDetail.writer && (
@@ -59,6 +73,11 @@ const ContentDetail = () => {
             <div className={styles.title}>{ContentDetail.title}</div>
             <div className={styles.userAndDate}>
               <div className={styles.user}>
+                <img
+                  className={styles.userImg}
+                  src="/images/paw1.jpeg"
+                  alt="userImage"
+                />
                 <div className={styles.userName}>
                   {ContentDetail.writer.name}
                 </div>
@@ -68,13 +87,21 @@ const ContentDetail = () => {
               </div>
             </div>
           </section>
-          <div><hr /></div>
+          <div>
+            <hr />
+          </div>
           <div className={styles.postContentWrapper}>
             <div
               className={styles.postContent}
               dangerouslySetInnerHTML={{ __html: ContentDetail.content }}
             ></div>
           </div>
+          <Comment
+            refreshFunction={refreshFunction}
+            commentList={Comments}
+            contentId={contentId}
+          />
+          <CommentList commentList={Comments} />
         </div>
       )}
     </>

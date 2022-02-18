@@ -19,6 +19,7 @@ const GridCard = () => {
   }, []);
 
   const renderCards = Content.map((content, index) => {
+
     return (
       <div key={index} className={styles.cardItem}>
         <a href={`content/${content._id}`}>
