@@ -6,6 +6,7 @@ import styles from "./ContentDetail.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 import Comment from "../../common/Comment/Comment"
 import CommentList from "components/common/Comment/CommentList";
+import { useSelector } from "react-redux";
 
 const formatDate = (date) => {
   let d = new Date(date),
@@ -20,6 +21,7 @@ const formatDate = (date) => {
 };
 
 const ContentDetail = () => {
+  const user = useSelector((state) => state.user)
   const contentId = useParams().contentId;
   const navigate = useNavigate();
 
@@ -49,6 +51,23 @@ const ContentDetail = () => {
 
   const handleBack = () => {
     navigate(-1)
+  }
+
+  const onDeleteContent = () => {
+    const variable = {contentId : contentId, userId: user.userData._id}
+    axios.post("/api/contents/deleteContent", variable)
+    .then(res => {
+      if(res.data.success) {
+        alert("게시글이 삭제되었습니다.")
+        navigate("/")
+      } else {
+        alert("게시글을 삭제할 수 없습니다.")
+      }
+    })
+  }
+
+  const onChangeContent = () => {
+
   }
 
   const refreshFunction = (newComment) => {
@@ -88,6 +107,18 @@ const ContentDetail = () => {
                 {formatDate(ContentDetail.createdAt)}
               </div>
             </div>
+            {user.userData._id === ContentDetail.writer._id && (
+              <section
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  fontSize: "1rem",
+                }}
+              >
+                <button onClick={onChangeContent}>수정</button>
+                <button onClick={onDeleteContent}>삭제</button>
+              </section>
+            )}
           </section>
           <div>
             <hr />
@@ -103,10 +134,7 @@ const ContentDetail = () => {
             commentList={Comments}
             contentId={contentId}
           />
-          <CommentList
-            deleteFunction={deleteFunction}
-            commentList={Comments}
-          />
+          <CommentList deleteFunction={deleteFunction} commentList={Comments} />
         </div>
       )}
     </>
