@@ -26,7 +26,8 @@ router.post("/getComments", (req, res) => {
 });
 
 router.post("/deleteComment", (req, res) => {
-  Comment.findOneAndDelete(req.body.commentId)
+  console.log(req.body)
+  Comment.findOneAndDelete(req.body)
   .exec((err, result) => {
     if(err) return res.status(400).send(err)
     return res.status(200).json({success: true, result})

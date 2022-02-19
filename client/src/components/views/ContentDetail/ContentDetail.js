@@ -55,8 +55,8 @@ const ContentDetail = () => {
     setComments(Comments.concat(newComment));
   }
 
-  const deleteFunction = (commentId) => {
-    let newComments = Comments.filter(comment => comment._id !== commentId._id)
+  const deleteFunction = (deletedCommentId) => {
+    let newComments = Comments.filter(comment => comment._id !== deletedCommentId)
     setComments(newComments);
   }
 
@@ -106,6 +106,7 @@ const ContentDetail = () => {
           <CommentList
             deleteFunction={deleteFunction}
             commentList={Comments}
+            commentId={Comments._id}
           />
         </div>
       )}

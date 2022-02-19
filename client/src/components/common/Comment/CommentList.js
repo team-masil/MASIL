@@ -23,11 +23,13 @@ const CommentList = (props) => {
   const user = useSelector((state) => state.user);
 
   const onDeleteComment = () => {
-    const variable = { commentId: props.commentList._id };
+    const variable = { commentId: props.commentId, userId: user.userData._id };
+    console.log(variable)
 
     axios.post("/api/comments/deleteComment", variable).then((res) => {
       if (res.data.success) {
-        props.deleteFunction(res.data.result);
+        console.log(res.data.result._id)
+        props.deleteFunction(res.data.result._id);
       } else {
         alert("댓글을 삭제할 수 없습니다.");
       }
