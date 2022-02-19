@@ -1,0 +1,43 @@
+.likesAndViewsWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.itemImg {
+  width: 2rem;
+  margin-right: 0.25rem;
+}
+
+.likes p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .likesAndViewsWrapper {
+    margin-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .likesAndViewsWrapper {
+    margin-right: 0;
+  }
+  .itemImg {
+    width: 1.5rem;
+  }
+  .eyeImg {
+    width: 2rem;
+  }
+}

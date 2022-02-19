@@ -16,6 +16,9 @@ const GridCard = () => {
         alert("비디오를 불러올 수 없습니다.");
       }
     });
+
+    
+
   }, []);
 
   const renderCards = Content.map((content, index) => {
@@ -44,12 +47,6 @@ const GridCard = () => {
               <FaRegCommentDots size={14} color={"#9A9A9A"} />
               <p className={styles.comments}>5</p>
             </div>
-
-            <div className={styles.infoItem}>
-              <FaRegEye size={16} color={"#9A9A9A"} />
-              <p className={styles.views}>30</p>
-            </div>
-
             <div className={styles.infoItem}>
               <img
                 className={styles.itemImg}

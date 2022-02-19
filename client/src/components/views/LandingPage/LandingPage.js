@@ -11,18 +11,6 @@ import KakaoMap from "../../common/Map/KakaoMap";
 import GridCard from "../GridCard/GridCard";
 
 const LandingPage = () => {
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
-
-  // const onClickHandler = () => {
-  //   dispatch(logoutUser()).then((res) => {
-  //     if (res.payload.success) {
-  //       navigate("/login");
-  //     } else {
-  //       alert("로그아웃에 실패했습니다.");
-  //     }
-  //   });
-  // };
 
   return (
     <>

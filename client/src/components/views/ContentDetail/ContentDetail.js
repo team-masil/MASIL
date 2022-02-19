@@ -7,6 +7,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import Comment from "../../common/Comment/Comment"
 import CommentList from "components/common/Comment/CommentList";
 import { useSelector } from "react-redux";
+import LikeAndView from "components/common/LikeAndView/LikeAndView";
 
 const formatDate = (date) => {
   let d = new Date(date),
@@ -129,6 +130,7 @@ const ContentDetail = () => {
               dangerouslySetInnerHTML={{ __html: ContentDetail.content }}
             ></div>
           </div>
+          <LikeAndView contentId={contentId} />
           <Comment
             refreshFunction={refreshFunction}
             commentList={Comments}
