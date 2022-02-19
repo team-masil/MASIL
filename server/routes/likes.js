@@ -3,7 +3,9 @@ const router = express.Router();
 const { Like } = require("../models/Like");
 
 router.post("/getLikes", (req, res) => {
-  Like.find(req.body).exec((err, likes) => {
+  console.log(req.body)
+  Like.find(req.body)
+  .exec((err, likes) => {
     if (err) return res.status(400).send(err);
     return res.status(200).json({ success: true, likes });
   });

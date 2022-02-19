@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./GridCard.module.css";
 import { Row } from "antd";
-import { FaRegCommentDots, FaRegEye } from "react-icons/fa";
+import { FaRegCommentDots } from "react-icons/fa";
 
 const GridCard = () => {
   const [Content, setContent] = useState([]);
+  const [Comments, setComments] = useState([])
+  const [Likes, setLikes] = useState(0)
 
   useEffect(() => {
     axios.get("/api/contents/getContent").then((res) => {
-      console.log(res.data);
       if (res.data.success) {
         setContent(res.data.contents);
       } else {
@@ -17,12 +18,12 @@ const GridCard = () => {
       }
     });
 
+
     
 
   }, []);
 
   const renderCards = Content.map((content, index) => {
-
     return (
       <div key={index} className={styles.cardItem}>
         <a href={`content/${content._id}`}>
