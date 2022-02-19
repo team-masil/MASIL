@@ -44,7 +44,7 @@
   margin-left: auto;
   margin-right: auto;
   padding-top: 1.5rem;
-  width: 7rem;
+  width: 6rem;
   height: 7rem;
 }
 
@@ -52,9 +52,9 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 1.5rem;
-  width: 5rem;
-  height: 7rem;
+  padding-top: 1rem;
+  width: 6rem;
+  height: 8rem;
 }
 
 .image4 {
@@ -97,48 +97,4 @@
   list-style: none;
   justify-content: center;
   color: grey
-}
-
-.info {
-  display: flex;
-  font-size: 0.75rem;
-  position: absolute;
-  bottom: 0.5rem;
-  right: 1rem;
-}
-
-.info p {
-  padding-right: 0.5rem;
-}
-
-.infoItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: grey;
-  margin-bottom: 0.3rem;
-}
-
-.infoItem p {
-  margin-bottom: 0rem;
-}
-
-.comments {
-  margin-left: 2px;
-}
-
-.views {
-  margin-left: 2px;
-}
-
-.itemImg {
-  width: 15px;
-  height: auto;
-  margin-right: 2px;
-}
-
-.viewImg {
-  width: 16px;
-  height: auto;
-  margin-right: 2px;
 }

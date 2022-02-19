@@ -28,4 +28,11 @@ router.post("/getContentDetail", (req, res) => {
   })
 });
 
+router.post("/deleteContent", (req, res) => {
+  Content.findOneAndDelete({"_id": req.body.contentId})
+  .exec((err, result) => {
+    if(err) return res.status(400).send(err)
+    return res.status(200).json({success: true, result})
+  })
+});
 module.exports = router;

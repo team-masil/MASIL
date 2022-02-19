@@ -30,6 +30,9 @@ app.get("/", (req, res) => {
 
 app.use('/api/users', require('./routes/users'));
 app.use('/api/contents', require('./routes/contents'));
+app.use('/api/comments', require('./routes/comments'));
+app.use('/api/likes', require('./routes/likes'));
+
 
 
 app.listen(port, () => {

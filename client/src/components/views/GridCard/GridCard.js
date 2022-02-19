@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./GridCard.module.css";
 import { Row } from "antd";
-import { FaRegCommentDots, FaRegEye } from "react-icons/fa";
+import GridCardInfo from "components/common/GridCardInfo/GridCardInfo";
 
 const GridCard = () => {
   const [Content, setContent] = useState([]);
 
   useEffect(() => {
     axios.get("/api/contents/getContent").then((res) => {
-      console.log(res.data);
       if (res.data.success) {
         setContent(res.data.contents);
       } else {
@@ -38,26 +37,7 @@ const GridCard = () => {
           {content.category === "나눠봐요" && (
             <img className={styles.image4} src="/images/share.png" alt="share" />
           )}
-          <section className={styles.info}>
-            <div className={styles.infoItem}>
-              <FaRegCommentDots size={14} color={"#9A9A9A"} />
-              <p className={styles.comments}>5</p>
-            </div>
-
-            <div className={styles.infoItem}>
-              <FaRegEye size={16} color={"#9A9A9A"} />
-              <p className={styles.views}>30</p>
-            </div>
-
-            <div className={styles.infoItem}>
-              <img
-                className={styles.itemImg}
-                src="/images/heart_filled.png"
-                alt="likes"
-              />
-              <p>15</p>
-            </div>
-          </section>
+        <GridCardInfo content={content}  />
         </a>
       </div>
     );
