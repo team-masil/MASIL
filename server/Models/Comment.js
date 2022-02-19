@@ -9,14 +9,14 @@ const commentSchema = mongoose.Schema({
     ref: User,
     required: true
   },
-  postId: {
+  contentId: {
     type: Schema.Types.ObjectId,
     ref: Content
   },
-  responseTo: {
-    type: Schema.Types.ObjectId,
-    ref: User
-  },
+  // responseTo: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: User
+  // },
   content: {
     type: String
   }

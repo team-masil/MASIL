@@ -24,7 +24,7 @@ const Comment = (props) => {
     };
     if (!user.userData.isAuth) {
       navigate("/login");
-    } else {
+    } else { 
       axios.post("/api/comments/saveComment", variables).then((res) => {
         if (res.data.success) {
           setCommentValue("");
