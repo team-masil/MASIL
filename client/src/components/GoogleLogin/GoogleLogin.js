@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { googleLogin } from "../../_actions/user_actions";
 import Auth from "../../hoc/auth";
+import { message } from "antd";
 
 
 const Google_Login = () => {
@@ -18,7 +19,8 @@ const Google_Login = () => {
     }
     await dispatch(googleLogin(body)).then((res) => {
       if(res.payload.googleOnSucces) {
-        navigate("/")
+        message.success("로그인에 성공했습니다.")
+          navigate("/");
       } else {
         alert("Error")
       }

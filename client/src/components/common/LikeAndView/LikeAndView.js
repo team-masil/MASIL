@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./LikeAndView.module.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { message } from "antd";
 
 const LikeAndView = (props) => {
   const user = useSelector((state) => state.user);
@@ -33,8 +34,9 @@ const LikeAndView = (props) => {
     //    좋아요를 누르면 좋아요 수를 +1 하고
     //    상태를 liked로 바꾼다.
     let variable = {contentId: props.contentId, userId: user.userData._id}
-
-    if(LikeAction === "unLiked") {
+    if (!user.userData.isAuth){
+      message.warning("로그인 후 이용가능합니다.")
+    } else if(LikeAction === "unLiked") {
       axios.post("/api/likes/like", variable)
       .then(res => {
         if(res.data.success) {
