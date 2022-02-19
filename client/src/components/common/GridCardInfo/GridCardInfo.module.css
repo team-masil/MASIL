@@ -1,0 +1,37 @@
+.info {
+  display: flex;
+  font-size: 0.75rem;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+}
+
+.info p {
+  padding-right: 0.5rem;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: grey;
+  margin-bottom: 0.3rem;
+}
+
+.infoItem p {
+  margin-bottom: 0rem;
+}
+
+.comments {
+  margin-left: 2px;
+}
+
+.views {
+  margin-left: 2px;
+}
+
+.itemImg {
+  width: 15px;
+  height: auto;
+  margin-right: 2px;
+}

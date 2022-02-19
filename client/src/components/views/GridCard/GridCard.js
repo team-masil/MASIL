@@ -2,12 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./GridCard.module.css";
 import { Row } from "antd";
-import { FaRegCommentDots } from "react-icons/fa";
+import GridCardInfo from "components/common/GridCardInfo/GridCardInfo";
 
 const GridCard = () => {
   const [Content, setContent] = useState([]);
-  const [Comments, setComments] = useState([])
-  const [Likes, setLikes] = useState(0)
 
   useEffect(() => {
     axios.get("/api/contents/getContent").then((res) => {
@@ -17,10 +15,6 @@ const GridCard = () => {
         alert("비디오를 불러올 수 없습니다.");
       }
     });
-
-
-    
-
   }, []);
 
   const renderCards = Content.map((content, index) => {
@@ -43,20 +37,7 @@ const GridCard = () => {
           {content.category === "나눠봐요" && (
             <img className={styles.image4} src="/images/share.png" alt="share" />
           )}
-          <section className={styles.info}>
-            <div className={styles.infoItem}>
-              <FaRegCommentDots size={14} color={"#9A9A9A"} />
-              <p className={styles.comments}>5</p>
-            </div>
-            <div className={styles.infoItem}>
-              <img
-                className={styles.itemImg}
-                src="/images/heart_filled.png"
-                alt="likes"
-              />
-              <p>15</p>
-            </div>
-          </section>
+        <GridCardInfo content={content}  />
         </a>
       </div>
     );
