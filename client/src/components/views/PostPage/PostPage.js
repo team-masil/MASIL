@@ -17,7 +17,7 @@ const categoryLists = [
 const customStyles = {
   control: (css) => ({
     ...css,
-    maxWidth: "500px",
+    maxWidth: "400px",
     width: "100%",
     minHeight: "3rem",
   }),
@@ -57,7 +57,6 @@ const PostPage = (props) => {
   }, [user]);
 
   console.log(Address)
-
   return (
     <>
       <section className={styles.editorWrapper}>
@@ -83,7 +82,7 @@ const PostPage = (props) => {
               className={styles.addressInput}
               type="text"
               value={Address}
-              placeholder="지도에 마커를 남겨주세요"
+              placeholder="지도에 마커를 남겨주세요."
               onChange={onAdressChange}
             />
           </div>
