@@ -30,3 +30,8 @@
     cursor: pointer;
 }
 
+.buttons button:active {
+    background-color: grey;
+
+}
+

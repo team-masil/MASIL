@@ -17,7 +17,7 @@ const LandingPage = () => {
     <Banner />
     <KakaoMap />
     <FilterBox />
-    <GridCard />
+    {/* <GridCard /> */}
     </>
   );
 };

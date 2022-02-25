@@ -24,14 +24,16 @@
 
 .comments {
   margin-left: 2px;
+  font-size: 1rem;
 }
 
-.views {
+.likes {
   margin-left: 2px;
+  font-size: 1rem;
 }
 
 .itemImg {
-  width: 15px;
+  width: 20px;
   height: auto;
   margin-right: 2px;
 }
