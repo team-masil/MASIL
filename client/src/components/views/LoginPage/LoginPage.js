@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Auth from "../../../hoc/auth";
 import GoogleLogin from "../../GoogleLogin/GoogleLogin";
 import KakaoLogin from "../../KakaoLogin/KakaoLogin"
+import { message } from "antd";
 
 const { Title } = Typography;
 
@@ -60,6 +61,7 @@ const LoginPage = (props) => {
                 } else {
                   localStorage.removeItem("rememberMe");
                 }
+                message.success("로그인에 성공했습니다.")
                 navigate("/");
               } else {
                 setFormErrorMessage("이메일 혹은 비밀번호를 다시 확인하세요.");

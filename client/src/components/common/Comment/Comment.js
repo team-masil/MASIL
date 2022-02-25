@@ -3,6 +3,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import styles from "./Comment.module.css";
 import { useNavigate } from "react-router-dom";
+import { message } from "antd";
 
 const Comment = (props) => {
   const user = useSelector(state => state.user)
@@ -23,7 +24,7 @@ const Comment = (props) => {
       contentId: props.contentId,
     };
     if (!user.userData.isAuth) {
-      navigate("/login");
+      message.warning("로그인 후 이용가능합니다.")
     } else { 
       axios.post("/api/comments/saveComment", variables).then((res) => {
         if (res.data.success) {
