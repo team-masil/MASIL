@@ -39,7 +39,7 @@ const GridCard = (props) => {
 
   return (
     <>
-      <div style={{ width: "80%", margin: "3rem auto" }}>
+      <div style={{ width: "80%", margin: "3rem auto", paddingBottom: "5rem" }}>
         <h2>게시글</h2>
         <hr />
         <Row>{renderCards}</Row>
