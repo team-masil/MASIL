@@ -125,6 +125,7 @@ const ContentDetail = () => {
             <hr />
           </div>
           <div className={styles.postContentWrapper}>
+            <div className={styles.address}>위치 : {ContentDetail.address}</div>
             <div
               className={styles.postContent}
               dangerouslySetInnerHTML={{ __html: ContentDetail.content }}
