@@ -68,7 +68,7 @@ const PostPage = (props) => {
           onChange={onTitleChange}
         />
         <div className={styles.categoryWrapper}>
-          <h3 className={styles.categoryList}>카테고리 : </h3>
+          <h3 className={styles.categoryList}>카테고리 :</h3>
           <div className={styles.categoryListsWrapper}>
             <Select
               styles={customStyles}
@@ -77,15 +77,18 @@ const PostPage = (props) => {
               onChange={onCategoryChange}
             />
           </div>
-          <input
-            type="text"
-            value={Address}
-            className="inputArea"
-            placeholder="지도에 마커를 남겨주세요"
-            onChange={onAdressChange}
-          />
+          <h3 className={styles.myPosition}>내 위치 :</h3>
+          <div className={styles.myPositionWrapper}>
+            <input
+              className={styles.addressInput}
+              type="text"
+              value={Address}
+              placeholder="지도에 마커를 남겨주세요"
+              onChange={onAdressChange}
+            />
+          </div>
         </div>
-        <PostMap changeAddress={changeAddress}/>
+        <PostMap changeAddress={changeAddress} />
         <div className={styles.textEditor}>
           <Editor
             previewStyle="vertical"
