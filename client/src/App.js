@@ -18,7 +18,6 @@ const App = () => {
           <Route exact path="/register" element={<RegisterPage />} />
           <Route exact path="/post" element={<PostPage />} />
           <Route exact path="/content/:contentId" element={<ContentDetail />} />
-
         </Routes>
       </BrowserRouter>
     </>
