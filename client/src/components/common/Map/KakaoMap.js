@@ -15,12 +15,10 @@ const KakaoMap = () => {
         alert("주소정보를 불러올 수 없습니다.");
       }
     });
-    console.log(MapInfo)
     displayMap();
   }, []);
 
   const displayMap = () => {
-    console.log(MapInfo)
     const mapContainer = document.getElementById("kakaoMap"), // 지도를 표시할 div
       mapOption = {
         center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -54,7 +52,6 @@ const KakaoMap = () => {
 
         MapInfo.forEach((address, i) => {
           geocoder.addressSearch(address.address, function (result, status) {
-            console.log(address.address);
             if (status === kakao.maps.services.Status.OK) {
               var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
@@ -63,6 +60,21 @@ const KakaoMap = () => {
                 position: coords,
               });
               marker.setMap(map);
+
+              console.log(address.title)
+              var iwContent = `<div style="width:80% padding:5px;">${address.title}</div>`;
+
+              var infowindow = new kakao.maps.InfoWindow({
+                content: iwContent,
+              });
+
+              kakao.maps.event.addListener(marker, "mouseover", function () {
+                infowindow.open(map, marker);
+              });
+
+              kakao.maps.event.addListener(marker, "mouseout", function () {
+                infowindow.close();
+              });
             }
           });
         });
@@ -87,6 +99,7 @@ const KakaoMap = () => {
               position: coords,
             });
             marker.setMap(map);
+
           }
         });
       });
