@@ -21,7 +21,8 @@ const Button = (props) => {
       title: props.title,
       category: props.category,
       content: props.content,
-      address: props.address
+      address: props.address,
+      latLng: props.latLng
     }
 
     console.log(variables)

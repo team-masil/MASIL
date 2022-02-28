@@ -31,9 +31,14 @@ const PostPage = (props) => {
   const [Category, setCategory] = useState("");
   const [Content, setContent] = useState("");
   const [Address, setAddress] = useState("")
+  const [LatLng, setLatLng] = useState(null)
 
   const changeAddress = (address) => {
-    setAddress(address)
+    setAddress(address);
+  }
+
+  const getLatLng =(latLng) => {
+    setLatLng(latLng);
   }
 
   const onTitleChange = (e) => {
@@ -57,6 +62,7 @@ const PostPage = (props) => {
   }, [user]);
 
   console.log(Address)
+  console.log(LatLng)
   return (
     <>
       <section className={styles.editorWrapper}>
@@ -87,7 +93,7 @@ const PostPage = (props) => {
             />
           </div>
         </div>
-        <PostMap changeAddress={changeAddress} />
+        <PostMap changeAddress={changeAddress} latLang={getLatLng} />
         <div className={styles.textEditor}>
           <Editor
             previewStyle="vertical"
@@ -104,6 +110,7 @@ const PostPage = (props) => {
           category={Category}
           content={Content}
           address={Address}
+          latLng={LatLng}
         />
       </section>
     </>

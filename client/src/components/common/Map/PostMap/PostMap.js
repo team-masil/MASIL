@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 const { kakao } = window;
 
 const PostMap = (props) => {
-  const [Address, setAddress] = useState("")
+  const [Address, setAddress] = useState("");
+  const [LatLng, setLatLng] = useState(null);
 
   useEffect(() => {
     const mapContainer = document.getElementById("kakaoMap"); // 지도를 표시할 div
@@ -48,6 +49,7 @@ const PostMap = (props) => {
         kakao.maps.event.addListener(map, "click", function (mouseEvent) {
           // 클릭한 위도, 경도 정보를 가져옵니다
           var latlng = mouseEvent.latLng;
+          setLatLng([latlng.getLat(), latlng.getLng()])
 
           // 마커 위치를 클릭한 위치로 옮깁니다
           marker.setPosition(latlng);
@@ -95,13 +97,16 @@ const PostMap = (props) => {
     geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
   }
 
-  const changeAddress = () => {
+  //상위 컴포넌트로 state를 올리기 위해서 
+  const goUpState = () => {
     props.changeAddress(Address)
+    props.latLang(LatLng);
+
   }
 
   return (
     <>
-      <div onClick={changeAddress}
+      <div onClick={goUpState}
         id="kakaoMap"
         style={{ width: "100%", height: "400px", margin: "1rem auto" }}
       ></div>

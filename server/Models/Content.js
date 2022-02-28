@@ -20,6 +20,9 @@ const contentSchema = mongoose.Schema(
     },
     address: {
       type: String,
+    },
+    latLng: {
+      type: Array,
     }
   },
   { timestamps: true }

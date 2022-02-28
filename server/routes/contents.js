@@ -35,4 +35,14 @@ router.post("/deleteContent", (req, res) => {
     return res.status(200).json({success: true, result})
   })
 });
+
+router.get("/getAdress", (req, res) => {
+  Content.find()
+  .populate("writer")
+  .exec((err, mapInfo) => {
+    if (err) return res.status(400).send(err);
+    return res.status(200).json({ success: true, mapInfo });
+  })
+});
+
 module.exports = router;
