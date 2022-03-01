@@ -39,10 +39,10 @@ const GridCard = (props) => {
 
   return (
     <>
-      <div style={{ width: "80%", margin: "3rem auto", paddingBottom: "5rem" }}>
+      <div className={styles.container}>
         <h2>게시글</h2>
         <hr />
-        <Row>{renderCards}</Row>
+        <Row gutter={[100]}>{renderCards}</Row>
       </div>
     </>
   );

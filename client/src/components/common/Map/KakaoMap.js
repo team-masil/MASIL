@@ -1,10 +1,13 @@
 /* global kakao */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const { kakao } = window;
 
 const KakaoMap = () => {
+  const navigate = useNavigate();
+
   const [MapInfo, setMapInfo] = useState([]);
 
   useEffect(() => {
@@ -16,7 +19,10 @@ const KakaoMap = () => {
       }
     });
     displayMap();
-  }, []);
+    // 렌더링 후에 useEffect가 실행되고 state가 업데이트 되기 전에 지도가 렌더링 되기 때문에
+    // MapInfo가 업데이트되면 useEffect를 한번 더 실행하기 위해서 인자를 넣어준다.
+    // MapInfo만 넣으면 useEffect가 계속 실행된다.
+  }, [MapInfo.length]);
 
   const displayMap = () => {
     const mapContainer = document.getElementById("kakaoMap"), // 지도를 표시할 div
@@ -61,19 +67,25 @@ const KakaoMap = () => {
               });
               marker.setMap(map);
 
-              console.log(address.title)
-              var iwContent = `<div style="width:80% padding:5px;">${address.title}</div>`;
+              var iwContent = `<div style="width:150px; padding:7px;">
+                                <div style="font-size:15px; font-weight:600;">${address.category}</div>
+                                <div style="font-size:12px">${address.title}</div>
+                              </div>`;
 
               var infowindow = new kakao.maps.InfoWindow({
                 content: iwContent,
               });
-
+              //마커에 마우스 오버 시 정보 표시
               kakao.maps.event.addListener(marker, "mouseover", function () {
                 infowindow.open(map, marker);
               });
-
+              //마커에 마우스 아웃 시 정보 사라짐
               kakao.maps.event.addListener(marker, "mouseout", function () {
                 infowindow.close();
+              });
+              //마커 클릭 시 해당 컨텐트로 이동
+              kakao.maps.event.addListener(marker, "click", function () {
+                navigate(`content/${address._id}`)
               });
             }
           });
@@ -99,7 +111,6 @@ const KakaoMap = () => {
               position: coords,
             });
             marker.setMap(map);
-
           }
         });
       });

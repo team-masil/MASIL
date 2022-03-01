@@ -46,13 +46,14 @@ button {
 
 @media screen and (max-width: 780px) {
   .postRegister {
-    display: none;
+    font-size: 1rem;
   }
   .loginElementWrapper {
     margin-right: 0;
   }
   .login {
     margin-right: 0;
+    font-size: 1em;
   }
   .logout {
       margin-right: 2rem;

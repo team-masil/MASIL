@@ -56,7 +56,7 @@ FilterAction을 false로 바꾼다.
   return (
     <>
       <div className={styles.container}>
-        <h2>원하는 서비스로 필터링해보세요!</h2>
+        <h2 className={styles.h2}>원하는 서비스로 필터링해보세요!</h2>
         <div className={styles.buttons}>
           <button onClick={categoryChange} value={"마실가요"}>
             마 실 가 요

@@ -1,3 +1,8 @@
+.container {
+  width: 80%;
+  margin: 3rem auto;
+  padding-bottom: 5rem;
+}
 .cardItem {
   width: 15.8rem;
   height: 18rem;
@@ -97,4 +102,19 @@
   list-style: none;
   justify-content: center;
   color: grey
+}
+
+@media screen and (max-width: 780px) {
+  .cardItem {
+    margin-right: 3rem;
+    margin-left: 3rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .cardItem {
+    margin-right: 5rem;
+    margin-left: 5rem;
+    width: 80%;
+  }
 }
