@@ -12,7 +12,7 @@
     width: 1024px;
     margin: 0 auto; /* 중앙 정렬 */
     background-color: #ffffff;
-  }
+}
   
   @media screen and (max-width: 1048px) {
     .editorWrapper {
@@ -30,25 +30,47 @@
     margin-bottom: 2rem;
     width: 100%;
     height: 4rem;
-  }
+}
 
 .categoryWrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     z-index: 2;
-  }
+}
 
 .categoryList {
     padding-top: 0.5rem;
-    width: 8rem;
+    width: 7rem;
     font-size: 20px;
     font-weight: 800;
   }
 
 .categoryListsWrapper {
-    width: 100%;
+    width: 60%;
 }
+
+.myPosition {
+  padding-top: 0.5rem;
+  width: 6rem;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.myPositionWrapper {
+  width: 40%
+}
+
+.addressInput {
+  font-size: 18px;
+  font-weight: 800;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ced4da;
+  width: 100%;
+  height: 3rem;
+}
+
 
 @media screen and (max-width: 575px) {
     .titleInput {

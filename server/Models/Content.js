@@ -18,6 +18,12 @@ const contentSchema = mongoose.Schema(
     content: {
       type: String,
     },
+    address: {
+      type: String,
+    },
+    latLng: {
+      type: Array,
+    }
   },
   { timestamps: true }
 );

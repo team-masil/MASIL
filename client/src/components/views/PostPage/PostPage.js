@@ -5,6 +5,7 @@ import styles from "./PostPage.module.css";
 import { Editor } from "@toast-ui/react-editor";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import Button from "components/common/Button/Button";
+import PostMap from "components/common/Map/PostMap/PostMap";
 
 const categoryLists = [
   { value: "마실가요", label: "마실가요" },
@@ -16,7 +17,7 @@ const categoryLists = [
 const customStyles = {
   control: (css) => ({
     ...css,
-    maxWidth: "500px",
+    maxWidth: "400px",
     width: "100%",
     minHeight: "3rem",
   }),
@@ -26,27 +27,42 @@ const PostPage = (props) => {
   const user = useSelector((state) => state.user);
   const editorRef = useRef();
 
-  const [Title, setTitle] = useState("")
-  const [Category, setCategory] = useState("")
-  const [Content, setContent] = useState("")
+  const [Title, setTitle] = useState("");
+  const [Category, setCategory] = useState("");
+  const [Content, setContent] = useState("");
+  const [Address, setAddress] = useState("")
+  const [LatLng, setLatLng] = useState(null)
+
+  const changeAddress = (address) => {
+    setAddress(address);
+  }
+
+  const getLatLng =(latLng) => {
+    setLatLng(latLng);
+  }
 
   const onTitleChange = (e) => {
-    setTitle(e.target.value)
+    setTitle(e.target.value);
   };
 
   const onCategoryChange = (e) => {
-    setCategory(e.value)
-  }
+    setCategory(e.value);
+  };
 
   const onContentsChange = () => {
-    setContent(editorRef.current.getInstance().getMarkdown())
+    setContent(editorRef.current.getInstance().getMarkdown());
+  };
+
+  const onAdressChange = () => {
+    setAddress(Address)
   }
 
   useEffect(() => {
-    console.log(user)
-  }, [])
-  
+    console.log(user);
+  }, [user]);
 
+  console.log(Address)
+  console.log(LatLng)
   return (
     <>
       <section className={styles.editorWrapper}>
@@ -57,7 +73,7 @@ const PostPage = (props) => {
           onChange={onTitleChange}
         />
         <div className={styles.categoryWrapper}>
-          <h3 className={styles.categoryList}>카테고리 : </h3>
+          <h3 className={styles.categoryList}>카테고리 :</h3>
           <div className={styles.categoryListsWrapper}>
             <Select
               styles={customStyles}
@@ -66,7 +82,18 @@ const PostPage = (props) => {
               onChange={onCategoryChange}
             />
           </div>
+          <h3 className={styles.myPosition}>내 위치 :</h3>
+          <div className={styles.myPositionWrapper}>
+            <input
+              className={styles.addressInput}
+              type="text"
+              value={Address}
+              placeholder="지도에 마커를 남겨주세요."
+              onChange={onAdressChange}
+            />
+          </div>
         </div>
+        <PostMap changeAddress={changeAddress} latLang={getLatLng} />
         <div className={styles.textEditor}>
           <Editor
             previewStyle="vertical"
@@ -77,7 +104,14 @@ const PostPage = (props) => {
             ref={editorRef}
           />
         </div>
-        <Button user={user.userData._id} title={Title} category={Category} content={Content} />
+        <Button
+          user={user.userData._id}
+          title={Title}
+          category={Category}
+          content={Content}
+          address={Address}
+          latLng={LatLng}
+        />
       </section>
     </>
   );

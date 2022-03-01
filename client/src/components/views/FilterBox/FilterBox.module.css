@@ -31,7 +31,33 @@
 }
 
 .buttons button:active {
-    background-color: grey;
-
+    background-color: #ced4da;
 }
 
+@media screen and (max-width: 780px) {
+    .container {
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+
+    .buttons button {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        padding: 5px 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+
+    .buttons button {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom: 1rem;
+        font-size: 18px;
+        padding: 10px 30px;
+    }
+}

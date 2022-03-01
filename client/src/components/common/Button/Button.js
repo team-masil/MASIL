@@ -20,7 +20,9 @@ const Button = (props) => {
       writer: user.userData._id,
       title: props.title,
       category: props.category,
-      content: props.content
+      content: props.content,
+      address: props.address,
+      latLng: props.latLng
     }
 
     console.log(variables)
