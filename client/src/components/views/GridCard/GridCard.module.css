@@ -106,15 +106,15 @@
 
 @media screen and (max-width: 780px) {
   .cardItem {
-    margin-right: 3rem;
-    margin-left: 3rem;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
   }
 }
 
 @media screen and (max-width: 575px) {
   .cardItem {
-    margin-right: 5rem;
-    margin-left: 5rem;
+    margin-right: 3rem;
+    margin-left: 3rem;
     width: 80%;
   }
 }

@@ -42,7 +42,7 @@ const GridCard = (props) => {
       <div className={styles.container}>
         <h2>게시글</h2>
         <hr />
-        <Row gutter={[100]}>{renderCards}</Row>
+        <Row>{renderCards}</Row>
       </div>
     </>
   );
