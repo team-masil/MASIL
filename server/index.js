@@ -18,9 +18,11 @@ express 4.xx 버전 이상으로는 express에 body-parser 내장
 app.use(cookieParser());
 app.use(cors())
 
+const config = require("./config/key");
+
 const mongoose = require("mongoose");
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(config.mongoURI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
@@ -33,7 +35,7 @@ app.use('/api/contents', require('./routes/contents'));
 app.use('/api/comments', require('./routes/comments'));
 app.use('/api/likes', require('./routes/likes'));
 
-if(proccess.env.NODE_ENV === "production") {
+if(process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
