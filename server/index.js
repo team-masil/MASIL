@@ -26,9 +26,9 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello World!");
+// });
 
 app.use('/api/users', require('./routes/users'));
 app.use('/api/contents', require('./routes/contents'));
