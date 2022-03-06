@@ -33,6 +33,14 @@ app.use('/api/contents', require('./routes/contents'));
 app.use('/api/comments', require('./routes/comments'));
 app.use('/api/likes', require('./routes/likes'));
 
+if(proccess.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
+  });
+}
+
 
 
 app.listen(port, () => {
