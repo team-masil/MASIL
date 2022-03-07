@@ -4,8 +4,8 @@
   "description": "react and node basic",
   "main": "index.js",
   "engine": {
-    "node":"16.13.1",
-    "npm":"8.4.0"
+    "node":"16.14.0",
+    "npm":"8.3.1"
   },
   "scripts": {
     "node": "node server/index.js",

@@ -1,63 +1,68 @@
 .container {
-    margin-left: 9rem;
-    margin-right: 9rem;
+  margin-left: 7rem;
+  margin-right: 7rem;
 }
+
+.h2 {
+  margin: 1rem;
+}
+
 .buttons {
-    text-align: center;
-    margin: 1rem auto;
+  text-align: center;
+  margin: 1rem auto;
 }
 
 .buttons button {
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-top: 0rem;
-    position: relative;
-    padding: 15px 50px;
-    border-radius: 25px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    background-color: rgb(255, 255, 255);
-    color: #015497;
-    font-size: 19px;
-    font-weight: 800;
-    transition: 0.25s;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 0rem;
+  position: relative;
+  padding: 15px 50px;
+  border-radius: 25px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  background-color: rgb(255, 255, 255);
+  color: #015497;
+  font-size: 19px;
+  font-weight: 800;
+  transition: 0.25s;
 }
 
 .buttons button:hover {
-    letter-spacing: 1px;
-    transform: scale(1.05);
-    cursor: pointer;
+  letter-spacing: 1px;
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .buttons button:active {
-    background-color: #ced4da;
+  background-color: #ced4da;
 }
 
 @media screen and (max-width: 780px) {
-    .container {
-        margin-left: 5rem;
-        margin-right: 5rem;
-    }
+  .container {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
 
-    .buttons button {
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        padding: 5px 20px;
-    }
+  .buttons button {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 5px 20px;
+  }
 }
 
 @media screen and (max-width: 575px) {
-    .container {
-        margin-left: 3rem;
-        margin-right: 3rem;
-    }
+  .container {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
 
-    .buttons button {
-        margin-left: 2rem;
-        margin-right: 2rem;
-        margin-bottom: 1rem;
-        font-size: 18px;
-        padding: 10px 30px;
-    }
+  .buttons button {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    font-size: 18px;
+    padding: 10px 30px;
+  }
 }
