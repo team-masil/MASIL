@@ -30,16 +30,16 @@ const PostPage = (props) => {
   const [Title, setTitle] = useState("");
   const [Category, setCategory] = useState("");
   const [Content, setContent] = useState("");
-  const [Address, setAddress] = useState("")
-  const [LatLng, setLatLng] = useState(null)
+  const [Address, setAddress] = useState("");
+  const [LatLng, setLatLng] = useState(null);
 
   const changeAddress = (address) => {
     setAddress(address);
-  }
+  };
 
-  const getLatLng =(latLng) => {
+  const getLatLng = (latLng) => {
     setLatLng(latLng);
-  }
+  };
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
@@ -54,15 +54,13 @@ const PostPage = (props) => {
   };
 
   const onAdressChange = () => {
-    setAddress(Address)
-  }
+    setAddress(Address);
+  };
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
+  // useEffect(() => {
+  //   console.log(user);
+  // }, [user]);
 
-  console.log(Address)
-  console.log(LatLng)
   return (
     <>
       <section className={styles.editorWrapper}>

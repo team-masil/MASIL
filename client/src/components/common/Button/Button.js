@@ -7,10 +7,10 @@ import styles from "./Button.module.css";
 
 const Button = (props) => {
   const navigate = useNavigate();
-  const user = useSelector((state => state.user))
+  const user = useSelector((state) => state.user);
 
   const onCancel = () => {
-    navigate("/")
+    navigate("/");
   };
 
   const onPublish = (e) => {
@@ -22,23 +22,21 @@ const Button = (props) => {
       category: props.category,
       content: props.content,
       address: props.address,
-      latLng: props.latLng
-    }
+      latLng: props.latLng,
+    };
 
-    console.log(variables)
-    axios.post("/api/contents/post", variables)
-    .then(res => {
-      if(res.data.success) {
-        message.success("게시글 등록에 성공했습니다.")
+    axios.post("/api/contents/post", variables).then((res) => {
+      if (res.data.success) {
+        message.success("게시글 등록에 성공했습니다.");
         setTimeout(() => {
           navigate("/");
         }, 1000);
       } else {
-        alert('글을 등록하는데 실패했습니다.')
+        alert("글을 등록하는데 실패했습니다.");
       }
-    })
+    });
   };
-  
+
   return (
     <>
       <section className={styles.buttons}>

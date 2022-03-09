@@ -71,15 +71,39 @@
   height: 3rem;
 }
 
+@media screen and (max-width: 780px) {
+  .categoryList {
+    width: 5rem;
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  .categoryListsWrapper {
+    width: 40%;
+    font-size: 15px;
+  }
+
+  .myPosition {
+    width: 5rem;
+    font-size: 15px;
+    font-weight: 800;
+    padding-left: 1rem;
+  }
+
+  .myPositionWrapper {
+    width: 40%;
+    font-size: 15px;
+  }
+}
 
 @media screen and (max-width: 575px) {
-    .titleInput {
+  .titleInput {
       font-size: 2rem;
-    }
-    .categoryListsWrapper {
-      font-size: 0.8rem;
-    }
   }
+  .categoryListsWrapper {
+    font-size: 0.8rem;
+  }
+}
 
 .textEditor {
     display: absolute;

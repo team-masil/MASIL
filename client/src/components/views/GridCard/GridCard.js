@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./GridCard.module.css";
-import { Row } from "antd";
+import { Row, Col } from "antd";
 import GridCardInfo from "components/common/GridCardInfo/GridCardInfo";
 
 const GridCard = (props) => {
