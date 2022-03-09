@@ -21,10 +21,9 @@ app.use(cors());
 const config = require("./config/key");
 
 const mongoose = require("mongoose");
-mongoose
-  .connect(config.mongoURI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log(err));
+mongoose.connect(config.mongoURI);
+// .then(() => console.log("MongoDB connected"))
+// .catch((err) => console.log(err));
 
 // app.get("/", (req, res) => {
 //   res.send("Hello World!");

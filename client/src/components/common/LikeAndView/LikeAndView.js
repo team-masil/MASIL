@@ -11,50 +11,46 @@ const LikeAndView = (props) => {
   const [LikeAction, setLikeAction] = useState("unLiked");
 
   useEffect(() => {
-    const variable = { contentId: props.contentId};
+    const variable = { contentId: props.contentId };
 
-    axios.post("/api/likes/getLikes", variable)
-    .then(res => {
-      if(res.data.success) {
-        setLikes(res.data.likes.length)
-        console.log(res.data)
+    axios.post("/api/likes/getLikes", variable).then((res) => {
+      if (res.data.success) {
+        setLikes(res.data.likes.length);
         res.data.likes.map((like) => {
           if (like.userId === user.userData._id) {
             setLikeAction("liked");
           }
         });
       } else {
-        alert("좋아요 정보를 가져올 수 없습니다.")
+        alert("좋아요 정보를 가져올 수 없습니다.");
       }
-    })
-  }, [])
+    });
+  }, []);
 
   const onClickLike = () => {
     // 1. 좋아요를 하지 않은 상태일 때,
     //    좋아요를 누르면 좋아요 수를 +1 하고
     //    상태를 liked로 바꾼다.
-    let variable = {contentId: props.contentId, userId: user.userData._id}
-    if (!user.userData.isAuth){
-      message.warning("로그인 후 이용가능합니다.")
-    } else if(LikeAction === "unLiked") {
-      axios.post("/api/likes/like", variable)
-      .then(res => {
-        if(res.data.success) {
+    let variable = { contentId: props.contentId, userId: user.userData._id };
+    if (!user.userData.isAuth) {
+      message.warning("로그인 후 이용가능합니다.");
+    } else if (LikeAction === "unLiked") {
+      axios.post("/api/likes/like", variable).then((res) => {
+        if (res.data.success) {
           setLikes(Likes + 1);
-          setLikeAction("liked")
+          setLikeAction("liked");
         } else {
-          alert('좋아요를 할 수 없습니다.')
+          alert("좋아요를 할 수 없습니다.");
         }
-      })
-
+      });
     }
-  }
-  
+  };
+
   const onClickUnLike = () => {
     // 2. 좋아요를 한 상태일 때,
     //    좋아료를 누르면 좋아요 수를 -1 하고
     //    상태를 unliked로 바꾼다.
-    let variable = {contentId: props.contentId, userId: user.userData._id}
+    let variable = { contentId: props.contentId, userId: user.userData._id };
 
     if (LikeAction === "liked") {
       axios.post("/api/likes/unlike", variable).then((res) => {
@@ -66,8 +62,7 @@ const LikeAndView = (props) => {
         }
       });
     }
-  }
-
+  };
 
   return (
     <>
