@@ -4,10 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import Auth from "../../../hoc/auth";
 import styles from "./ContentDetail.module.css";
 import { FaArrowLeft } from "react-icons/fa";
-import Comment from "../../common/Comment/Comment"
+import Comment from "../../common/Comment/Comment";
 import CommentList from "components/common/Comment/CommentList";
 import { useSelector } from "react-redux";
 import LikeAndView from "components/common/LikeAndView/LikeAndView";
+import { message } from "antd";
 
 const formatDate = (date) => {
   let d = new Date(date),
@@ -22,7 +23,7 @@ const formatDate = (date) => {
 };
 
 const ContentDetail = () => {
-  const user = useSelector((state) => state.user)
+  const user = useSelector((state) => state.user);
   const contentId = useParams().contentId;
   const navigate = useNavigate();
 
@@ -32,14 +33,13 @@ const ContentDetail = () => {
   useEffect(() => {
     const variable = { contentId: contentId };
 
-    axios.post("/api/contents/getContentDetail", variable)
-    .then(res => {
-      if(res.data.success) {
-        setContentDetail(res.data.contentDetail)
+    axios.post("/api/contents/getContentDetail", variable).then((res) => {
+      if (res.data.success) {
+        setContentDetail(res.data.contentDetail);
       } else {
-        alert('게시글을 불러올 수 없습니다.')
+        alert("게시글을 불러올 수 없습니다.");
       }
-    })
+    });
 
     axios.post("/api/comments/getComments", variable).then((res) => {
       if (res.data.success) {
@@ -51,34 +51,33 @@ const ContentDetail = () => {
   }, [contentId]);
 
   const handleBack = () => {
-    navigate(-1)
-  }
+    navigate(-1);
+  };
 
   const onDeleteContent = () => {
-    const variable = {contentId : contentId, userId: user.userData._id}
-    axios.post("/api/contents/deleteContent", variable)
-    .then(res => {
-      if(res.data.success) {
-        alert("게시글이 삭제되었습니다.")
-        navigate("/")
+    const variable = { contentId: contentId, userId: user.userData._id };
+    axios.post("/api/contents/deleteContent", variable).then((res) => {
+      if (res.data.success) {
+        message.success("게시글이 삭제되었습니다.");
+        navigate("/");
       } else {
-        alert("게시글을 삭제할 수 없습니다.")
+        message.warn("게시글을 삭제할 수 없습니다.");
       }
-    })
-  }
+    });
+  };
 
-  const onChangeContent = () => {
-
-  }
+  const onChangeContent = () => {};
 
   const refreshFunction = (newComment) => {
     setComments(Comments.concat(newComment));
-  }
+  };
 
   const deleteFunction = (deletedComment) => {
-    let newComments = Comments.filter(comment => comment._id !== deletedComment._id)
+    let newComments = Comments.filter(
+      (comment) => comment._id !== deletedComment._id
+    );
     setComments(newComments);
-  }
+  };
 
   return (
     <>
