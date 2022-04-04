@@ -1,20 +1,22 @@
 const express = require("express");
 const app = express();
 const port = 5000;
+//const bodyParser = require ('body-parser');
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+
 
 require("dotenv").config();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.json());
 /*
-원래는 body-parser dependency를 사용해서
-app.use(body-parser.urlencoded({extended: true}));
-app.use(body-parser.json());
-옵션을 작성해야 하지만
-express 4.xx 버전 이상으로는 express에 body-parser 내장
+Originally body-parser dependency was used, 
+but from express 4.xx their own body-parser implementation is included in Express.
 */
+
 app.use(cookieParser());
 app.use(cors());
 
