@@ -19,6 +19,10 @@ const commentSchema = mongoose.Schema({
   // },
   content: {
     type: String
+  },
+  like: {
+    type: Number,
+    defaultValue: 0
   }
 },
   { timestamps: true }

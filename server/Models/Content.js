@@ -23,6 +23,11 @@ const contentSchema = mongoose.Schema(
     },
     latLng: {
       type: Array,
+    },
+    like: {
+      type: Number,
+      defaultValue: 0,
+      ref: Like
     }
   },
   { timestamps: true }

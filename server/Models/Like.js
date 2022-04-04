@@ -16,7 +16,7 @@ const likeSchema = mongoose.Schema({
   contentId: {
     type: Schema.Types.ObjectId,
     ref: Content
-  }
+  },
 },
   { timestamps: true }
 );
