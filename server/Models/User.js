@@ -21,9 +21,13 @@ const userSchema = mongoose.Schema({
     type: String,
     maxLength: 50,
   },
+  firstName: {
+    type: String,
+    maxlength: 50
+  },
   role: {
     type: Number,
-    default: 1,
+    default: 1, //1 is for normal user (default) & 2 is for admin
   },
   image: String,
   token: {
