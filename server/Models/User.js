@@ -1,21 +1,24 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const saltRounds = 10;
+const saltRounds = 10; //10 digits of salt will be created
 const jwt = require("jsonwebtoken");
 
 const userSchema = mongoose.Schema({
   name: {
     type: String,
     maxLength: 50,
+    required: true
   },
   email: {
     type: String,
     trim: true,
     unique: 1,
+    required: true
   },
   password: {
     type: String,
     minLength: 6,
+    required: true
   },
   lastName: {
     type: String,
